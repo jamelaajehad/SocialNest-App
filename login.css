@@ -3,15 +3,15 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fdfdfd;
+    background-color: #eeeaea;
     font-family: "Nerko One", cursive ;
   }
 
   .login-container {
-    background-color: transparent;
+    background-color: white ;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     backdrop-filter: blur(30px);
@@ -81,7 +81,7 @@
   font-family: "Outfit", sans-serif !important;
 }
 .register-link p a {
-    color: #adafaf;
+    color: #0f0f0f !important;
     text-decoration: none !important;
     font-weight: 500;
     font-size: 14.5px;
