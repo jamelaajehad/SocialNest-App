@@ -1,0 +1,112 @@
+
+.navbar-brand {
+   font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px !important;
+}
+.nav-item a{
+    font-family: "Outfit", sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    font-weight: 500 !important;
+}
+.btn-primary{
+ background-color :rgb(197, 107, 56);
+ color: rgb(252, 252, 252) ;
+}
+.login-btn{
+    border-radius: 18px; 
+    border: 1px solid rgb(197, 107, 56) ;
+    background-color: rgb(255, 255, 255); 
+    padding: 6px;
+    color: rgb(26, 26, 26) ;
+    margin-right:5px;
+    width:70px;
+    transition: transform 0.3s ease;
+    font-weight: 450;
+    font-family: "Outfit", sans-serif;
+} 
+.login-btn:hover{
+    transform: scale(1.1);
+}
+.register-btn {
+    border-radius: 18px; 
+    border: 1px solid rgb(197, 107, 56) ;
+    background-color:rgb(197, 107, 56)  ; 
+    padding: 6px;
+    color: rgb(248, 246, 246) ;
+    width:85px;
+    transition: transform 0.3s ease;
+    font-family: "Outfit", sans-serif;;
+}
+.register-btn:hover{
+    transform: scale(1.1);
+}
+
+.logout-btn{
+    border-radius: 18px; 
+    border: 1px solid rgb(197, 107, 56) ;
+    background-color:rgb(197, 107, 56)  ; 
+    padding: 6px;
+    color: rgb(248, 246, 246) ;
+    width:80px;
+    transition: transform 0.3s ease;
+    font-family: "Outfit", sans-serif;;
+}
+.logout-btn:hover{
+    transform: scale(1.1);
+}
+
+.bi-chat {
+ color: rgb(199, 95, 35) !important;
+
+}
+.card{
+ margin-top: 30px;
+} 
+.btn-tag {
+    border-radius: 18px; 
+    border: 1px solid rgb(197, 107, 56) ;
+    background-color:rgb(197, 107, 56)  ; 
+    color: rgb(248, 246, 246) ;
+    width:70px;
+    height:auto;
+    margin-left: 3px;
+    justify-content: center;
+}
+
+.add-btn1 {
+    position: fixed;
+    bottom: 5%;
+    right: 7%; 
+    height: 70px; 
+    width: 70px; 
+    font-size: 50px;
+    text-align: center ; 
+    cursor: pointer; 
+    color: white ;
+    border-radius: 100px; 
+    background-color: rgb(197, 107, 56);
+    
+  }
+  .create-btn {
+    border-radius: 19px; 
+    border: 1px solid rgb(197, 107, 56) ;
+    background-color:rgb(197, 107, 56)  ; 
+    color: rgb(248, 246, 246) ;
+    width:70px;
+    height:40px;
+    margin-left: 3px;
+    justify-content: center;
+  }
+  .close-btn {
+    border-radius: 19px; 
+    border: 1px solid rgb(139, 139, 139) ;
+    background-color:rgb(131, 129, 128)  ; 
+    color: rgb(248, 247, 247) ;
+    width:70px;
+    height:40px;
+    margin-left: 3px;
+    justify-content: center;
+  }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="./node_modules/axios/dist/axios.min.js"> </script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+          <h1>Login to SocialNest</h1>
+          <form id="login-form" ></form>
+          <!-- <div class="input-box"> 
+            <input type="text" id="username-input" class="form-control">
+          </div> -->
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input" >
+            
+            <label for="password-input">Password:</label>
+            <input type="password" id="password-input" >
+      
+            <button type="button" onclick="LoginBtnClicked()">Login</button>
+            <div className="register-link">
+              <p>
+                Don't have an account? <a href="register.html">Sign Up</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+</body>
+<script>
+
+    const baseUrl ="https://tarmeezacademy.com/api/v1"
+
+
+    function LoginBtnClicked() {
+     const username = document.getElementById("username-input").value;
+     const password= document.getElementById("password-input").value;
+    
+     const params = {
+      "username" : username,
+      "password" : password 
+     } 
+     const url = `${baseUrl}/login`;
+     
+     axios.post(url, params)
+      .then((response) => {
+
+        localStorage.setItem( "token", response.data.token); 
+        localStorage.setItem( "user", JSON.stringify(response.data.user));
+        console.log("Response data:", response);  
+      
+        console.log("Token:", response.data.token);
+        Toastify({
+          text: "You have successfully logged in." ,
+          duration: 3000,  
+          gravity: "top", 
+          position: "right", 
+          style: {
+            background: " rgb(94, 173, 130) ",
+            border: "2px solid rgb(94, 173, 130) ", 
+            color: "white", 
+            borderRadius: "5px", 
+            padding: "10px", 
+  },
+        }).showToast();
+       
+        window.location.href = "home.html"; 
+      })
+      
+      .catch((error) => {
+        console.error("Login error:", error);
+
+        Toastify({
+          text: "Invalid username or password. Please try again.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          style: {
+            background: "rgb(255, 77, 77)",  
+            border: "2px solid rgb(255, 77, 77)",
+            color: "white",
+            borderRadius: "5px",
+            padding: "10px",
+          },
+        }).showToast();
+      });
+  }
+</script>
+
+</html>
