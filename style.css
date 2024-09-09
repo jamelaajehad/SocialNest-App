@@ -53,6 +53,7 @@
     width:80px;
     transition: transform 0.3s ease;
     font-family: "Outfit", sans-serif;;
+    margin-left: 5px;
 }
 .logout-btn:hover{
     transform: scale(1.1);

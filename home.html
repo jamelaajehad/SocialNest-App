@@ -18,7 +18,7 @@
 </head>
 <style>
   body {
-    background-color: rgb(252, 250, 248);
+    background-color:  #eeeaea;
     font-family: "Outfit", sans-serif;
   }
   
@@ -85,9 +85,13 @@
                     <button type="button" id="login-btn" class="login-btn" onclick="redirectToLogin() " >Login</button>
                     <button type="button" id= "register-btn" class="register-btn" onclick="redirectToregister() ">Register</button>
                 </div>
-                <div class="d-flex w-100 justify-content-end" id="logout-div" > 
+                <div class="d-flex w-100 justify-content-end align-items-center"  id="logout-div" > 
+                  <img id= "nav-image" src="./images/1.png" alt="" class="rounded-circle" style ="width:30px; height: 30px;">
+                  <b id="nav-username" style="font-weight: 300;">
+                    @omarrr
+                  </b>
                   <button type="button" onclick="logout()" id= "logout-btn" class="logout-btn">Logout</button>
-              </div>
+                </div>
               </div>
             </div>
              </nav>
@@ -174,16 +178,32 @@
     </div> 
 </body>
 <script>
+  
+  let currentPage = 1
+  let lastPage = 1 
+   window.addEventListener("scroll",function(){
+     const endOfPage = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+      if(endOfPage && currentPage < lastPage) 
+      {
+        currentPage= currentPage + 1 
+         getPosts(false,currentPage)
+      }
+}
+);
   setupUI ()
   getPosts()
   const baseUrl ="https://tarmeezacademy.com/api/v1"
 
-  function getPosts() {
+  function getPosts(reload = true ,page=1) {
      const baseUrl ="https://tarmeezacademy.com/api/v1"
-     axios.get(`${baseUrl}/posts`)
+     axios.get(`${baseUrl}/posts?limit&page=${page}`)
      .then((response)=> {
      const posts = response.data.data
-     document.getElementById("posts").innerHTML= "";
+     lastPage = response.data.meta.last_page
+     if(reload){
+      document.getElementById("posts").innerHTML= "";
+     }
+   
      for(post of posts)
      {
       console.log(post)
@@ -360,7 +380,20 @@ function redirectToregister() {
         addBtn.style.setProperty("display","block","important")
         loginDiv.style.setProperty("display","none","important")
         logoutDiv.style.setProperty("display" , "flex" ,"important")
+
+        const user = getCurrentUser()
+        document.getElementById("nav-username").innerHTML= user.username
+        document.getElementById("nav-image").src = user.profile_image
       }
+     }
+
+     function getCurrentUser() {
+      let user = null
+      const storageUser = localStorage.getItem("user")
+      if(storageUser != null) {
+        user = JSON.parse(storageUser)
+      }
+      return user
      }
 
 </script>
